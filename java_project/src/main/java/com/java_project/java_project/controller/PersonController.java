@@ -30,7 +30,7 @@ public class PersonController {
         return personService.getAllPeople();
     }
     //getting person by their id
-    @GetMapping("/{id}")
+    @GetMapping("/person/{id}")
     public ResponseEntity<Person> getPersonById(@PathVariable("id") int id) {
         Person person = personService.getPersonById(id);
         if (person != null) {

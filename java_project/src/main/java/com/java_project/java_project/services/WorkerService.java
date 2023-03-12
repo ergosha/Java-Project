@@ -42,5 +42,15 @@ public class WorkerService {
     public void deleteworker(int id) {
         workers.removeIf(worker -> worker.getId() == id);
     }
+    //this method will search for workers with their job title and return all with the same jobtitle
+    public List<Worker> getWorkersByJobTitle(String jobTitle) {
+        List<Worker> sameJobTitle = new ArrayList<>();
+        for (Worker worker : workers) {
+            if (worker.getJobTitle().equalsIgnoreCase(jobTitle)) {
+                sameJobTitle.add(worker);
+            }
+        }
+        return sameJobTitle;
+    }
 
 }

@@ -47,7 +47,7 @@ public class PersonController {
         
     }
     //updating persons data
-    @PutMapping("/{id}")
+    @PutMapping("/person/{id}")
     public ResponseEntity<Person> updatePerson(@PathVariable("id") int id, @RequestBody Person updatedPerson) {
         Person person = personService.getPersonById(id);
         if (person != null) {
@@ -59,7 +59,7 @@ public class PersonController {
         }
     }
     //deleting a person
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/person/{id}")
     public ResponseEntity<Void> deletePerson(@PathVariable("id") int id) {
         Person person = personService.getPersonById(id);
         if (person != null) {

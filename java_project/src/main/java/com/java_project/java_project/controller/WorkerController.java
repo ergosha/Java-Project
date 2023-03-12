@@ -69,4 +69,14 @@ public class WorkerController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    //getting workers with their jobtitle
+     @GetMapping("/worker/jobtitle")
+    public ResponseEntity<List<Worker>> getWorkersByJobTitle(@RequestParam("jobTitle") String jobTitle){
+        List<Worker> workers = workerService.getWorkersByJobTitle(jobTitle);
+        if (!workers.isEmpty()) {  
+            return new ResponseEntity<>(workers, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }
